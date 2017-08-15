@@ -1,0 +1,88 @@
+// volumen del cilindro.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "stdlib.h"
+
+using namespace std; 
+
+float POTEN(float x, int y);
+int FAC(int n);
+float serie (int X, int N);
+
+int main ()
+{
+	float pot,base,facto,S;
+	int opcion,exponente,n;
+
+	do
+	{
+		cout<<"Menu \n";
+        cout<<"1.- Potencia \n";
+		cout<<"2.- Factorial \n";
+		cout<<"3.- Serie \n";
+		cout<<"4.- Salir \n";
+		cout<<"Opcion: ";
+		cin>>opcion;
+		switch(opcion)
+		{
+		case 1:{
+			cout<<"Ingrese el valor de la base: ";
+			cin>>base;
+			cout<<"Ingrese el valor del exponente: ";
+			cin>>exponente;
+			pot= POTEN(base,exponente);
+			cout<<"la potencia de "<<base << "elevado a:" <<exponente << "es: "<<pot;
+			   break; }
+		case 2:{
+			cout<<"Ingrese el valor de N: ";
+			cin>>n;
+			facto=FAC(n);
+			cout<<"El factorial de: "<<n << "es: "<<facto;
+			break;}
+		case 3:{
+			cout<<"Ingrese el valor de X: ";
+			cin>>base;
+			cout<<"Ingrese el valor de Y: ";
+			cin>>exponente;
+			S= serie(base,exponente);
+			cout<<"La suma de la serie es: "<<S;
+			break;}
+		case 0:
+			cout<<"salir \n";
+			break;
+		default:
+			cout<<"Opcion invalida"; 
+		}
+		getch();
+		system("cls");
+	}
+	while(opcion!=0);
+	return 0;
+}	
+
+float POTEN(float x, int y)
+{
+	float P=1; 
+	for (int i=1;i<=y;i++)
+		P=P*x;
+	return P;
+}
+
+int FAC(int n)
+{
+	int P=1; 
+	for (int i=2;i<=n;i++) 
+		P=P*i;
+	return P;
+}
+
+float serie (int X, int N)
+{
+	float S=0; 
+	for (int i=1;i<=N;i++) 
+	    S=S+POTEN(X,i)/FAC(i);
+	return S;
+}
