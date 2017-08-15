@@ -1,0 +1,22 @@
+// serie.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+void main()
+{ int N, c=0, s;
+  do{
+     cout<<"ingrese N: ";
+     cin>>N;
+    }
+    while(N<=0);
+	for(s=1;s<=N;s=s+4)
+	{
+		c=c+s;
+	}
+  cout<<"la suma es: "<<c;
+  getch();
+}
