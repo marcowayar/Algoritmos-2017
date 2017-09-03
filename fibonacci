@@ -1,0 +1,41 @@
+// vector.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+
+using namespace std;
+
+int fib(int M);
+
+int main()
+{
+	int M, suma;
+	cout<<"escriba M: ";
+	cin>>M;
+	
+	suma=fib(M);
+
+	cout<<"la suma es: "<<suma;
+	getch();
+return 0;
+}
+
+int fib(int M)
+{
+	int t1=1;
+	int t2=1;
+	int t3=2;
+	int suma=2;
+	while (t3<=M)
+	{
+		suma=suma+t3;
+		t1=t2;
+		t2=t3;
+		t3=t1+t2;
+	}
+	return suma;
+}
+
+
