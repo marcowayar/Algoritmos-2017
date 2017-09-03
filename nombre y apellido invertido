@@ -1,0 +1,31 @@
+// string.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string nombrecambiado(string nom, string ap);
+
+void main()
+{
+	string nom,ap,n;
+	cout<<"escriba su nombre; "<<endl;
+	getline(cin, nom);
+	cout<<"escriba su apellido: "<<endl;
+	getline(cin, ap);
+
+	n=nombrecambiado(nom,ap);
+	cout<<"su apellido y nombre es: "<<n;
+	getch();
+}
+
+string nombrecambiado(string nom, string ap)
+{
+	string n;
+	n=ap+" "+nom;
+	return n;
+}
