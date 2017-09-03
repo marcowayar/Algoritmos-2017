@@ -1,0 +1,34 @@
+// vocales.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+int vocales(string palabra);
+
+void main()
+{
+	string palabra, p;
+	cout<<"Ingrese una palabra: "<<endl;
+	getline(cin, palabra);
+	p=vocales(palabra);
+	cout<<"el numero de vocales en la palabra es/son: "<<p<<endl;
+	getch();
+}
+
+int vocales(string palabra)
+{
+	int res=0;
+	int lon=palabra.length();
+	for (int i=0; i<lon; i++)
+	{
+		if(palabra[i]=='e'|| palabra[i]=='a'|| palabra[i]=='i'|| palabra[i]=='o'|| palabra[i]=='u')
+		{
+			res++;
+		}
+	}
+	return res;
+}
