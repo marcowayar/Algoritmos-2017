@@ -1,0 +1,30 @@
+// numero mayor.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#define MAX 100
+
+using namespace std;
+
+void main()
+{
+    int n;
+	int v[MAX];
+	int mayor=0;
+    cout<<"escriba n: ";
+	cin>>n;
+	for (int i=0; i<n; i++)
+	{
+		cout<<"ingrese el valor de i: "<<endl;
+		cin>>v[i];
+		if (v[i]>mayor)
+		{ 
+			mayor=v[i];
+		}
+	
+	}
+	cout<<"el mayor numero del vector es: "<<mayor<<endl;
+	getch();
+}
