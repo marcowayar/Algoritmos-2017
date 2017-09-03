@@ -1,0 +1,27 @@
+// mult.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define MAX 100
+
+using namespace std;
+
+
+void main()
+{
+	int N, mult=1; 
+	int v[MAX];
+	cout<<"escriba el valor de N: ";
+	cin>>N;
+	for(int i=0; i<N; i++)
+	{
+		cout<<"ingrese el vector: ";
+		cin>>v[i];
+	mult=mult*v[i];
+	}
+	
+	cout<<"La multiplicacion de los valores del vector es: "<<mult<<endl;
+	getch();
+}
