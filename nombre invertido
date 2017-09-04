@@ -1,0 +1,35 @@
+// otro string.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void inv(string nom);
+
+void main()
+{
+	string nom,p;
+	cout<<"Introduzca su nombre: "<<endl;
+	getline(cin,nom);
+    inv(nom);
+	
+	getch();
+}
+
+void inv(string nom)
+{
+	int lng;
+	char aux;
+    lng=nom.length();
+	for (int i=0; i<lng/2; i++)
+	{
+		aux=nom.at(i);
+		nom.at(i)=nom.at(lng-1-i);
+		nom.at(lng-1-i)=aux;
+	}
+	cout<<"el nombre invertido es: "<<nom<<endl;
+}
