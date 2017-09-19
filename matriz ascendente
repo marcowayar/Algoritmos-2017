@@ -1,0 +1,102 @@
+// practico.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#define MAX 10
+
+using namespace std;
+
+struct matV
+{
+	int subvec[MAX];
+};
+
+void cargar_mat_vec(matV mat[MAX][MAX], int fil, int col, int N);
+void ordenar_vec_ascendente(matV mat[MAX][MAX], int fil, int col, int N);
+void mostrar_mat_vec_ascendente(matV mat[MAX][MAX], int fil, int col, int N);
+
+void main()
+{
+	int fil, col, N;
+	matV mat[MAX][MAX];
+	do
+	{
+		cout<<"ingrese las filas de la matriz principal: "<<endl;
+		cin>>fil;
+	}
+	while((fil<=0)||(fil>MAX));
+	do
+	{
+		cout<<"Ingrese las columnas de la matriz principal: "<<endl;
+		cin>>col;
+	}
+	while((col<=0)||(col>MAX));
+	do
+	{
+		cout<<"Ingrese el tamano de los vectores: "<<endl;
+		cin>>N;
+	}
+	while((N<=0)||(N>MAX));
+	cout<<"matriz original"<<endl;
+	cargar_mat_vec(mat, fil, col ,N);
+	ordenar_vec_ascendente(mat, fil, col, N);
+	cout<<"Nueva matriz"<<endl;
+	mostrar_mat_vec_ascendente(mat,fil,col,N);
+	getch();
+}
+
+void cargar_mat_vec(matV mat[MAX][MAX], int fil, int col, int N)
+{
+	int i,j,k;
+	for(i=0;i<fil;i++)
+	{
+		for(j=0;j<col;j++)
+		{
+			for(k=0;k<N;k++)
+			{
+				cout<<"mat["<<i<<"]["<<j<<"].subvec["<<k<<"]=";
+				cin>>mat[i][j].subvec[k];
+			}
+		}
+	}
+}
+
+void ordenar_vec_ascendente(matV mat[MAX][MAX], int fil, int col, int N)
+{
+	int i,j,k,l,aux;
+	for(i=0;i<fil;i++)
+	{
+		for(j=0;j<col;j++)
+		{
+			for(k=0;k<N-1;k++)
+			{
+				for(l=k+1;k<N;k++)
+				{
+					if((mat[i][j].subvec[l])<(mat[i][j].subvec[k]))
+					{
+						aux=mat[i][j].subvec[k];
+						mat[i][j].subvec[k]=mat[i][j].subvec[l];
+						mat[i][j].subvec[l]=aux;
+					}
+				}
+			}
+		}
+	}
+}
+
+void mostrar_mat_vec_ascendente(matV mat[MAX][MAX], int fil, int col, int N)
+{
+	int i,j,k;
+	for(i=0;i<fil;i++)
+	{
+		for(j=0;j<col;j++)
+		{
+			for(k=0;k<N;k++)
+			{
+				cout<<"mat["<<i<<"]["<<j<<"].subvec["<<k<<"]="<<mat[i][j].subvec[k]<<endl;
+			}
+		}
+	}
+}
